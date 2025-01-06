@@ -30,11 +30,7 @@ function App() {
       <h2>{`Hello my name is ${name}`}</h2>
       <Header />
       <Input setName={setName} />
-      <User
-        name={name}
-        isLoggedIn={true}
-        friends={friends}
-      />
+      <User name={name} isLoggedIn={true} age={25} friends={friends} />
     </>
   );
 }

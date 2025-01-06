@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const User = ({ name, isLoggedIn, friends }) => {
+const User = ({ name, isLoggedIn, friends, age }) => {
+  if (!isLoggedIn) {
+    return <div>Lütfen giriş yapınız!</div>;
+  }
   return (
     <>
       {isLoggedIn ? (
@@ -24,6 +27,13 @@ User.prototypes = {
   name: PropTypes.string.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   friends: PropTypes.array.isRequired,
+  age: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
+
+User.defaultProps = {
+  isLoggedIn: false,
+  name: "New User",
+  age: 0,
 };
 
 export default User;
