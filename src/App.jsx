@@ -3,34 +3,37 @@ import "./App.css";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import User from "./components/User";
+import Counter from "./components/Counter";
+import Form from "./components/Form";
 
 function App() {
   const [name, setName] = useState("Murat");
-  const friends = [
+  const [friends, setFriends] = useState([
     {
-      id: 1,
       name: "Murat",
     },
     {
-      id: 2,
       name: "Ahmet",
     },
     {
-      id: 3,
       name: "Tayfur",
     },
     {
-      id: 4,
       name: "Kratos",
     },
-  ];
+  ]);
 
   return (
     <>
+      <Form />
       <h2>{`Hello my name is ${name}`}</h2>
+      <Counter />
       <Header />
       <Input setName={setName} />
       <User name={name} isLoggedIn={true} age={25} friends={friends} />
+      <button onClick={() => setFriends([...friends, { name: "Ayşe" }])}>
+        Add a Friend
+      </button>
     </>
   );
 }
