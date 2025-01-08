@@ -11,9 +11,9 @@ const User = ({ name, isLoggedIn, friends, age }) => {
         <div>
           <p>{name}</p>
           <h2>Arkadaşlarım</h2>
-          {friends.map((friend) => (
-            <div key={friend.id}>
-              {friend.id} - {friend.name}
+          {friends.map((friend, index) => (
+            <div key={index}>
+              {index} - {friend.name}
             </div>
           ))}
         </div>
